@@ -9,7 +9,6 @@ using namespace std;
 const int INF = numeric_limits<int>::max();
 const int TRANSFER_TIME = 3;
 
-// Структура для представления остановки в маршруте
 struct StopNode {
     int stop;
     StopNode* next;
@@ -18,12 +17,11 @@ struct StopNode {
     StopNode(int stop_num) : stop(stop_num), next(nullptr), prev(nullptr) {}
 };
 
-// Структура для хранения информации о состоянии при обходе графа
 struct State {
-    int stop;           // Номер остановки
-    int route_index;    // Индекс маршрута, на котором находимся
-    int dist;           // Расстояние от начальной остановки
-    int transfers;      // Количество пересадок
+    int stop;           //номер остановки
+    int route_index;    //индекс маршрута, на котором находимся
+    int dist;           //расстояние от н ост
+    int transfers;      //кол пересадок
 
     bool operator>(const State& other) const {
         if (dist != other.dist) {
@@ -43,7 +41,7 @@ int main() {
     cout << "Введите количество маршрутов (r): ";
     cin >> r;
 
-    vector<StopNode*> routes(r, nullptr); // Массив указателей на начало каждого маршрута
+    vector<StopNode*> routes(r, nullptr); //массив указателей на начало каждого маршрута
     for (int i = 0; i < r; ++i) {
         int route_length;
         cout << "Введите длину маршрута " << i + 1 << ": ";
